@@ -139,7 +139,7 @@ include('pages/required/tables.php');
                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  <?php echo $login_query_result['name'];?>
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -187,7 +187,7 @@ include('pages/required/tables.php');
           <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?php echo $login_query_result['name'];?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
