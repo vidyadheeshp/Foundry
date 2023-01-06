@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2023 at 12:23 PM
+-- Generation Time: Jan 06, 2023 at 12:27 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -47,20 +47,20 @@ INSERT INTO `department_master` (`sno`, `dept_name`, `short_name`, `status`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `meta_core_tyoe`
+-- Table structure for table `meta_core_type`
 --
 
-CREATE TABLE `meta_core_tyoe` (
+CREATE TABLE `meta_core_type` (
   `sno` int(11) NOT NULL,
-  `core_type` varchar(16) NOT NULL,
+  `core_type` varchar(15) NOT NULL,
   `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `meta_core_tyoe`
+-- Dumping data for table `meta_core_type`
 --
 
-INSERT INTO `meta_core_tyoe` (`sno`, `core_type`, `status`) VALUES
+INSERT INTO `meta_core_type` (`sno`, `core_type`, `status`) VALUES
 (1, 'Cold Box', 1),
 (2, 'No bake', 1),
 (3, 'CO2 Core', 1);
@@ -154,9 +154,9 @@ ALTER TABLE `department_master`
   ADD PRIMARY KEY (`sno`);
 
 --
--- Indexes for table `meta_core_tyoe`
+-- Indexes for table `meta_core_type`
 --
-ALTER TABLE `meta_core_tyoe`
+ALTER TABLE `meta_core_type`
   ADD PRIMARY KEY (`sno`);
 
 --
@@ -188,9 +188,9 @@ ALTER TABLE `department_master`
   MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `meta_core_tyoe`
+-- AUTO_INCREMENT for table `meta_core_type`
 --
-ALTER TABLE `meta_core_tyoe`
+ALTER TABLE `meta_core_type`
   MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
