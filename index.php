@@ -459,7 +459,7 @@ include('pages/required/tables.php');
                                   </div>
                                    <div class="form-group col-md-6">
                                     <label class="help-block">Dead Clay: <span class="text-danger">*</span></label>
-                                    <input type="text" id="active_clay" required name="active_clay" class="form-control" placeholder="Enter active clay"/>
+                                    <input type="text" id="active_clay" required name="active_clay" class="form-control" placeholder="Enter dead clay"/>
                                   </div>
 
                                   <div class="clearfix"></div>
