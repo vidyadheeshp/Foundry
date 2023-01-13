@@ -3,7 +3,7 @@
 	$tables = array(
 		1 => 
 			array (
-				'res_master' => 'SNO, RES_TITLE, CID, DEPT, RESDATE, RESCODE, RESNO, RES_STATUS_ID, RES_IMAGE_URL, RES_TEXT, AID, CRDATE, STATUS'
+				'quality_inspection_master' => 'sno, product_id, casting_weight, defects, location, created_at, updated_at, status'
 				),
 		2 => 
 			array (

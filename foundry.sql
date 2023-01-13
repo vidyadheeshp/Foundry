@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 06, 2023 at 12:27 PM
+-- Generation Time: Jan 13, 2023 at 12:33 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -99,6 +99,36 @@ INSERT INTO `meta_defect_type` (`sno`, `defect_type`, `defect_name`, `status`) V
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `quality_inspection_master`
+--
+
+CREATE TABLE `quality_inspection_master` (
+  `sno` int(11) NOT NULL,
+  `product_id` varchar(128) NOT NULL,
+  `casting_weight` int(11) NOT NULL,
+  `defects` varchar(32) NOT NULL,
+  `location` varchar(128) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quality_inspection_master`
+--
+
+INSERT INTO `quality_inspection_master` (`sno`, `product_id`, `casting_weight`, `defects`, `location`, `created_at`, `updated_at`, `status`) VALUES
+(1, '12jhgvf122', 50, '1-2', 'public_html/Laballocator/ajax', '2023-01-13 04:36:57', '0000-00-00 00:00:00', 1),
+(2, 'bnh20230115', 50, '1-2', 'road way', '2023-01-13 04:49:10', '0000-00-00 00:00:00', 1),
+(3, 'bnh20230115', 50, '1-2', 'road way', '2023-01-13 04:49:46', '0000-00-00 00:00:00', 1),
+(4, '12jhgvf122', 50, '2-3', 'public_html/Laballocator/ajax', '2023-01-13 04:55:58', '0000-00-00 00:00:00', 1),
+(5, '12jhgvf122', 100, '2-3', 'casting', '2023-01-13 04:56:53', '0000-00-00 00:00:00', 1),
+(6, '210389bnvrd', 65, '2', 'casting', '2023-01-13 04:58:00', '0000-00-00 00:00:00', 1),
+(7, 'sgbvf456', 100, '1-2', 'melting', '2023-01-13 04:58:54', '0000-00-00 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_master`
 --
 
@@ -166,6 +196,12 @@ ALTER TABLE `meta_defect_type`
   ADD PRIMARY KEY (`sno`);
 
 --
+-- Indexes for table `quality_inspection_master`
+--
+ALTER TABLE `quality_inspection_master`
+  ADD PRIMARY KEY (`sno`);
+
+--
 -- Indexes for table `user_master`
 --
 ALTER TABLE `user_master`
@@ -198,6 +234,12 @@ ALTER TABLE `meta_core_type`
 --
 ALTER TABLE `meta_defect_type`
   MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `quality_inspection_master`
+--
+ALTER TABLE `quality_inspection_master`
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user_master`

@@ -57,20 +57,20 @@
 		//echo $sql;
 		//$result = mysqli_query($con, $sql);
 		//for fetching the inserted if part is used for a custome table called equipment_master.
-		if($table_no == 1){
+		/*if($table_no == 1){
 			if (mysqli_query($con, $sql) == TRUE) {
 					 $last_id = mysqli_insert_id($con);
 					 return $last_id;
 			} else {
 				return 0;
 			}
-		}else{
+		}else{*/
 			if (mysqli_query($con,$sql) == TRUE) {
 					return 1;
 				}else{
 					return 0;
 				}
-		}	
+		//}	
 			//return $return_msg;
 	}
 	

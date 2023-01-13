@@ -265,9 +265,13 @@ include('pages/required/tables.php');
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?php 
+                  $product_defect_query = "SELECT count(*) AS defect_count FROM quality_inspection_master WHERE 1=1 AND status=1";
+                  $product_defect_count = db_one($product_defect_query);
+                  echo $product_defect_count['defect_count'];
+                ?></h3>
 
-              <p>Add Product</p>
+              <p>Add Product Defect</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
@@ -279,11 +283,11 @@ include('pages/required/tables.php');
                         <div class="modal-header bg-purple">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"> <i class="fa fa-plus"></i> Add Product</h4>
+                        <h4 class="modal-title"> <i class="fa fa-plus"></i> Add Defective Casting Information</h4>
                         </div>
                         
                       <span class="help-block">
-                        <div class="resolution_added_notification">
+                        <div class="product_defect_added_notification">
                           <div id="loading_image" style="display:none;"></div>
                         
                       <form method="post" id="product_add" role="form">
@@ -293,13 +297,13 @@ include('pages/required/tables.php');
                               <input type="text" id="product_id" required name="product_id" class="form-control" placeholder="Enter Product Id"/>
                             </div>
                             <div class="form-group col-md-6">
-                              <label class="help-block">Quantity (Kg's): <span class="text-danger">*</span></label>
+                              <label class="help-block">Casting Weight (Kg's): <span class="text-danger">*</span></label>
                               <input type="text" id="quantity" required name="quantity" class="form-control" placeholder="Enter Quantity"/>
                             </div>
                             <div class="form-group col-md-6">
                               <label class="help-block">Defect <span class="text-danger">*</span></label>
-                              <select id="defect" required name="defect" class="form-control res_cat">
-                                <option value="0">Choose One</option>
+                              <select id="defect" required name="defect" class="form-control res_cat" multiple>
+                                
                               <?php 
                                 $defect_query = "SELECT sno,defect_name FROM meta_defect_type WHERE 1=1";
                                 $defect_result = db_all($defect_query);
@@ -312,16 +316,16 @@ include('pages/required/tables.php');
                               </select>
                             </div>
                            <div class="form-group col-md-6">
-                              <label class="help-block">Location <span class="text-danger">*</span></label>
+                              <label class="help-block">Location </label>
                               <input type="text" id="location" required name="location" class="form-control" placeholder="Enter Location"/>
                             </div>
                             
                         </div>
-                          
+                          <div class="clearfix"></div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
                           <button type="reset" class="btn btn-default btn-flat"></i> Reset</button>
-                          <button type="submit" class="btn bg-purple btn-flat" id="add_product"><i class="fa fa-plus"></i> Add</button>
+                          <button type="button" class="btn bg-purple btn-flat" id="add_product_defect"><i class="fa fa-plus"></i> Add</button>
                         </div>
                       </form>
                       </div>
@@ -370,15 +374,8 @@ include('pages/required/tables.php');
                               <label class="help-block">Type of Melting <span class="text-danger">*</span></label>
                               <select id="defect" required name="defect" class="form-control res_cat">
                                 <option value="0">Choose One</option>
-                              <?php 
-                                $defect_query = "SELECT sno,defect_name FROM meta_defect_type WHERE 1=1";
-                                $defect_result = db_all($defect_query);
-                                $dr_str = "";
-                                foreach($defect_result AS $dr){
-                                  $dr_str .="<option value=".$dr['sno']." class='help-block'>".$dr['defect_name']."</option>";
-                                }
-                                echo $dr_str;
-                              ?>
+                                <option value="1">SG Iron</option>
+                                <option value="2">Cast Iron</option>
                               </select>
                             </div>
                             <div class="form-group col-md-6">
@@ -583,6 +580,8 @@ include('pages/required/tables.php');
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
+<!--custom jquery files for db transaction -->
+<script src="jQuery/add_product_defect.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
