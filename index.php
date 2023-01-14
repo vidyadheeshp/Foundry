@@ -361,38 +361,72 @@ include('pages/required/tables.php');
                         </div>
                         
                       <span class="help-block">
-                        <div class="resolution_added_notification">
+                        <div class="melting_details_added_notification">
                           <div id="loading_image" style="display:none;"></div>
                         
-                      <form method="post" id="product_add" role="form">
-                        <div class="modal-body">
-                            <div class="form-group col-md-6">
-                              <label class="help-block">Heat No : <span class="text-danger">*</span></label>
-                              <input type="text" id="product_id" required name="heat_no" class="form-control" placeholder="Enter Heat No"/>
-                            </div>
-                              <div class="form-group col-md-6">
-                              <label class="help-block">Type of Melting <span class="text-danger">*</span></label>
-                              <select id="defect" required name="defect" class="form-control res_cat">
-                                <option value="0">Choose One</option>
-                                <option value="1">SG Iron</option>
-                                <option value="2">Cast Iron</option>
-                              </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label class="help-block">Tapout Temperature: <span class="text-danger">*</span></label>
-                              <input type="text" id="tap_temp" required name="tap_temp" class="form-control" placeholder="Enter Temperature"/>
-                            </div>
-                            <div class="clearfix"></div>
-                            
-                        </div>
-                          
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
-                          <button type="reset" class="btn btn-default btn-flat"></i> Reset</button>
-                          <button type="submit" class="btn bg-purple btn-flat" id="add_melting"><i class="fa fa-plus"></i> Add</button>
-                        </div>
-                      </form>
-                      </div>
+                            <form method="post" id="melting_add" role="form">
+                              <div class="modal-body">
+                                  <div class="form-group col-md-6">
+                                    <label class="help-block">Heat No : <span class="text-danger">*</span></label>
+                                    <input type="text" id="heat_no" required name="heat_no" class="form-control" placeholder="Enter Heat No"/>
+                                  </div>
+                                    <div class="form-group col-md-6">
+                                    <label class="help-block">Type of Melting <span class="text-danger">*</span></label>
+                                    <select id="melting_type" required name="defect" class="form-control ">
+                                      <option value="0">Choose One</option>
+                                      <option value="1">SG Iron</option>
+                                      <option value="2">Cast Iron</option>
+                                    </select>
+                                  </div>
+                                   <div class="form-group col-md-12">
+                                     <label class="help-block">Changes Added </label>
+                                    <table class="table table-bordered">
+                                      <thead>
+                                        <tr>
+                                          <th>Material</th>
+                                          <th>Quantity <span class="text-danger">*</span></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <td>RR</td>
+                                          <td><input type="text" id="rr_quantiry" class="form-control" placeholder="in KG's"/></td>
+                                        </tr>
+                                        <tr>
+                                          <td>Pigiran</td>
+                                          <td><input type="text" id="Pigiran_quantiry" class="form-control" placeholder="in KG's"/></td>
+                                        </tr>
+                                        <tr>
+                                          <td>CRC Scrap</td>
+                                          <td><input type="text" id="crc_Scrap_quantiry" class="form-control" placeholder="in KG's"/></td>
+                                        </tr>
+                                        <tr>
+                                          <td>Rejected Castings</td>
+                                          <td><input type="text" id="Rejected_Castings_quantiry" class="form-control" placeholder="in KG's"/></td>
+                                        </tr>
+                                        <tr>
+                                          <td>FerroSilicon</td>
+                                          <td><input type="text" id="FerroSilicon_quantiry" class="form-control" placeholder="in KG's"/></td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                   
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label class="help-block">Tapout Temperature: <span class="text-danger">*</span></label>
+                                    <input type="text" id="tap_temp" required name="tap_temp" class="form-control" placeholder="Enter Temperature"/>
+                                  </div>
+                                  <div class="clearfix"></div>
+                                  
+                              </div>
+                                
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
+                                <button type="reset" class="btn btn-default btn-flat"></i> Reset</button>
+                                <button type="button" class="btn bg-purple btn-flat" id="add_melting"><i class="fa fa-plus"></i> Add</button>
+                              </div>
+                            </form>
+                          </div>
                       </span><!--end of help block-->
                     </div>
                     <!-- /.modal-content -->
@@ -466,7 +500,7 @@ include('pages/required/tables.php');
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
                                 <button type="reset" class="btn btn-default btn-flat"></i> Reset</button>
-                                <button type="submit" class="btn bg-purple btn-flat" id="add_melting"><i class="fa fa-plus"></i> Add</button>
+                                <button type="submit" class="btn bg-purple btn-flat" id="sand_testing"><i class="fa fa-plus"></i> Add</button>
                               </div>
                             </form>
                       </div>
@@ -582,6 +616,7 @@ include('pages/required/tables.php');
 </script>
 <!--custom jquery files for db transaction -->
 <script src="jQuery/add_product_defect.js"></script>
+<script src="jQuery/add_melting_details.js"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->

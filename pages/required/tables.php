@@ -7,7 +7,7 @@
 				),
 		2 => 
 			array (
-				'res_status_master' => 'SNO, RID, CID, SID, MDATE, REMARK, STATUS'
+				'melting_details_master' => 'sno, heat_no, type_of_melting, rr, pigiran, crc_scrap, rejected_castings, ferrosilicon, tap_temp, created_at, updated_at, status'
 			),
 		3 => 
 			array (
