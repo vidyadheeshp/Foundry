@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 13, 2023 at 12:33 PM
+-- Generation Time: Jan 14, 2023 at 09:01 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -43,6 +43,41 @@ INSERT INTO `department_master` (`sno`, `dept_name`, `short_name`, `status`) VAL
 (2, 'Melting', 'MEL', 1),
 (3, 'Sand Testing Lab', 'STL', 1),
 (4, 'Core Shop', 'CS', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `melting_details_master`
+--
+
+CREATE TABLE `melting_details_master` (
+  `sno` int(11) NOT NULL,
+  `heat_no` varchar(64) NOT NULL,
+  `type_of_melting` int(11) NOT NULL,
+  `rr` int(11) NOT NULL,
+  `pigiran` int(11) NOT NULL,
+  `crc_scrap` int(11) NOT NULL,
+  `rejected_castings` int(11) NOT NULL,
+  `ferrosilicon` int(11) NOT NULL,
+  `tap_temp` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `melting_details_master`
+--
+
+INSERT INTO `melting_details_master` (`sno`, `heat_no`, `type_of_melting`, `rr`, `pigiran`, `crc_scrap`, `rejected_castings`, `ferrosilicon`, `tap_temp`, `created_at`, `updated_at`, `status`) VALUES
+(1, 'srty454', 1, 564, 45, 43, 56, 76, 6534, '2023-01-14 12:14:46', '0000-00-00 00:00:00', 1),
+(2, 'srty454', 1, 564, 45, 43, 56, 76, 6534, '2023-01-14 12:14:46', '0000-00-00 00:00:00', 1),
+(3, '654fhjyf', 1, 54, 65, 45, 34, 76, 653, '2023-01-14 12:17:54', '0000-00-00 00:00:00', 1),
+(4, '654fhjyf', 1, 54, 65, 45, 34, 76, 653, '2023-01-14 12:17:54', '0000-00-00 00:00:00', 1),
+(5, '32456', 1, 45, 34, 87, 56, 49, 65423, '2023-01-14 12:24:48', '0000-00-00 00:00:00', 1),
+(6, '32456', 1, 45, 34, 87, 56, 49, 65423, '2023-01-14 12:24:48', '0000-00-00 00:00:00', 1),
+(7, '3q45', 1, 765, 345, 34, 546, 43, 543, '2023-01-14 12:26:02', '0000-00-00 00:00:00', 1),
+(8, '3q45', 1, 765, 345, 34, 546, 43, 543, '2023-01-14 12:26:02', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -184,6 +219,12 @@ ALTER TABLE `department_master`
   ADD PRIMARY KEY (`sno`);
 
 --
+-- Indexes for table `melting_details_master`
+--
+ALTER TABLE `melting_details_master`
+  ADD PRIMARY KEY (`sno`);
+
+--
 -- Indexes for table `meta_core_type`
 --
 ALTER TABLE `meta_core_type`
@@ -222,6 +263,12 @@ ALTER TABLE `user_type`
 --
 ALTER TABLE `department_master`
   MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `melting_details_master`
+--
+ALTER TABLE `melting_details_master`
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `meta_core_type`
