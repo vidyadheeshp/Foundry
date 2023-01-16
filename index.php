@@ -343,15 +343,19 @@ include('pages/required/tables.php');
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?php 
+                  $melting_details_query = "SELECT count(*) AS melting_count FROM melting_details_master WHERE 1=1 AND status=1";
+                  $melting_details_count = db_one($melting_details_query);
+                  echo $melting_details_count['melting_count'];
+                ?></h3>
 
               <p>Add Melting Details</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer" data-toggle="modal" data-target="#add_melting">Add <i class="fa fa-arrow-circle-right"></i></a>
-                    <div class="modal fade" id="add_melting" role="dialog">
+            <a href="#" class="small-box-footer" data-toggle="modal" data-target="#add_melting_details">Add <i class="fa fa-arrow-circle-right"></i></a>
+                    <div class="modal fade" id="add_melting_details" role="dialog">
                       <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <div class="modal-header bg-purple">
@@ -441,7 +445,11 @@ include('pages/required/tables.php');
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>150</h3>
+              <h3><?php 
+                  $sand_testing_details_query = "SELECT count(*) AS sand_testing_count FROM sand_testing_details_master WHERE 1=1 AND status=1";
+                  $sand_testing_details_count = db_one($sand_testing_details_query);
+                  echo $sand_testing_details_count['sand_testing_count'];
+                ?></h3>
 
               <p>Sand Testing Lab</p>
             </div>
@@ -459,7 +467,7 @@ include('pages/required/tables.php');
                         </div>
                         
                       <span class="help-block">
-                        <div class="resolution_added_notification">
+                        <div class="sand_testing_added_notification">
                           <div id="loading_image" style="display:none;"></div>
                         
                             <form method="post" id="product_add" role="form">
@@ -490,7 +498,23 @@ include('pages/required/tables.php');
                                   </div>
                                    <div class="form-group col-md-6">
                                     <label class="help-block">Dead Clay: <span class="text-danger">*</span></label>
-                                    <input type="text" id="active_clay" required name="active_clay" class="form-control" placeholder="Enter dead clay"/>
+                                    <input type="text" id="dead_clay" required name="dead_clay" class="form-control" placeholder="Enter dead clay"/>
+                                  </div>
+                                   <div class="form-group col-md-6">
+                                    <label class="help-block">GFN: <span class="text-danger">*</span></label>
+                                    <input type="text" id="gfn" required name="gfn" class="form-control" placeholder="Enter GFN"/>
+                                  </div>
+                                   <div class="form-group col-md-6">
+                                    <label class="help-block">GCS: <span class="text-danger">*</span></label>
+                                    <input type="text" id="gcs" required name="gcs" class="form-control" placeholder="Enter GCS"/>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label class="help-block">Compactability: <span class="text-danger">*</span></label>
+                                    <input type="text" id="Compactability" required name="Compactability" class="form-control" placeholder="Enter GCS"/>
+                                  </div>
+                                   <div class="form-group col-md-6">
+                                    <label class="help-block">Mould Hardness: <span class="text-danger">*</span></label>
+                                    <input type="text" id="mould_hardness" required name="mould_hardness" class="form-control" placeholder="Enter GCS"/>
                                   </div>
 
                                   <div class="clearfix"></div>
@@ -500,7 +524,7 @@ include('pages/required/tables.php');
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
                                 <button type="reset" class="btn btn-default btn-flat"></i> Reset</button>
-                                <button type="submit" class="btn bg-purple btn-flat" id="sand_testing"><i class="fa fa-plus"></i> Add</button>
+                                <button type="button" class="btn bg-purple btn-flat" id="sand_testing"><i class="fa fa-plus"></i> Add</button>
                               </div>
                             </form>
                       </div>
@@ -565,7 +589,7 @@ include('pages/required/tables.php');
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
                                 <button type="reset" class="btn btn-default btn-flat"></i> Reset</button>
-                                <button type="submit" class="btn bg-purple btn-flat" id="add_melting"><i class="fa fa-plus"></i> Add</button>
+                                <button type="submit" class="btn bg-purple btn-flat" id="add_core_shop"><i class="fa fa-plus"></i> Add</button>
                               </div>
                             </form>
                       </div>
@@ -617,6 +641,8 @@ include('pages/required/tables.php');
 <!--custom jquery files for db transaction -->
 <script src="jQuery/add_product_defect.js"></script>
 <script src="jQuery/add_melting_details.js"></script>
+<script src="jQuery/sand_testing_details.js"></script>
+
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->

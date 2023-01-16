@@ -11,7 +11,7 @@
 			),
 		3 => 
 			array (
-				'booked_equipment' => 'sno, equipment_id, equipmet_name, descreiption, status'
+				'sand_testing_details_master' => 'sno, per_moisture, per_clay, other_additives,shear_strength,permiability, active_clay, dead_clay, GFN, GCS, compatibility, mould_hardness, created_at, updated_at, status'
 			),
 		4 => 
 			array (
