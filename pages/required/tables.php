@@ -11,11 +11,11 @@
 			),
 		3 => 
 			array (
-				'sand_testing_details_master' => 'sno, per_moisture, per_clay, other_additives,shear_strength,permiability, active_clay, dead_clay, GFN, GCS, compatibility, mould_hardness, created_at, updated_at, status'
+				'sand_testing_details_master' => 'sno, per_moisture, per_clay, other_additives, shear_strength, permiability, active_clay, dead_clay, GFN, GCS, compatibility, mould_hardness, created_at, updated_at, status'
 			),
 		4 => 
 			array (
-				'equipment_booking_log' => 'sno, booked_by, equipment_id, equip_detail_id, booked_date, from_time, to_time, description, equipment_status, status'
+				'core_shop_details' => 'sno, core_type, product_name, core_weight, no_of_core_produced, no_of_defect_cores, Date, shift, created_at, updated_at, status'
 			),
 		5 => 
 			array (

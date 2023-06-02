@@ -9,13 +9,14 @@
 	require('../pages/required/functions.php');
 	
 	//data retrieval
-	$product_id = $_POST['e1'];
-	$quantity = $_POST['e2']; //casting_weight
-	$defects = $_POST['e3'];
-	$location = $_POST['e4'];
+	$core_type = $_POST['e1'];
+	$product_name = $_POST['e2']; //casting_weight
+	$core_weight = $_POST['e3'];
+	$date_of_core_details = db_date($_POST['e4']);
+	$core_produced = $_POST['e5'];
+	$core_defective = $_POST['e6'];
+	$shift = $_POST['e7'];
 
-//modified data
-	$string_defects = implode('-', $defects);
 	
 	//echo $defects[1];
 	date_default_timezone_set('Asia/Kolkata');
@@ -23,26 +24,26 @@
 	$updated_at = date('0000-00-00 00:00:00');
 	$status = 1;
 	
-	$table_no = 1;
-	$table_name = 'quality_inspection_master';
+	$table_no = 4;
+	$table_name = 'core_shop_details';
 
-	foreach ($defects AS $sep_defect_val){
-		$insert_values = "NULL,'".$product_id."',".$quantity.",".$sep_defect_val.",'".$location."','".$created_at."','".$updated_at."',".$status;
-		$product_defect_insert_result = db_insert($table_no,$table_name,$insert_values);
-	}
+		$insert_values = "NULL,".$core_type.",'".$product_name."',".$core_weight.",".$core_produced.",".$core_defective.",'".$date_of_core_details."',".$shift.",'".$created_at."','".$updated_at."',".$status;
+
+		//echo $insert_values;
+		$core_shop_insert_result = db_insert($table_no,$table_name,$insert_values);
 	
 
-	if($product_defect_insert_result == 1){
+	if($core_shop_insert_result == 1){
 	
 	?>
 	<div class="callout callout-success">
 				<h4>Successful</h4>
 				<?php //echo "The file ". htmlspecialchars( basename($res_doc)). " has been uploaded.";?>
-				<p>Product Defect Added</p>
+				<p>Core Shop details Added</p>
 	</div>
 	<?php }else{?>
 		<div class="callout callout-danger">
-								<h4>Unable to add defect</h4>
+								<h4>Unable to add Core Shop details</h4>
 
 								<p>Check Out.</p>
 							  </div>

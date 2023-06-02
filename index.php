@@ -217,21 +217,18 @@ include('pages/required/tables.php');
        
         
         <li>
-          <a href="my_entries.php">
-            <i class="fa fa-calendar"></i> <span>My Entries</span>
-            <!--span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span-->
+          <a href="quality_inspection.php">
+             <i class="fa fa-calendar"></i> <span>Quality Inspection</span>
+            <span class="pull-right-container">
+              <i class="fa fa-arrow-circle-right"></i>
+            </span>
           </a>
         </li>
         <li>
-          <a href="pages/mailbox/mailbox.html">
-            <i class="fa fa-envelope"></i> <span>Mailbox</span>
+          <a href="core_shop.php">
+            <i class="fa fa-envelope"></i> <span>Core Shop</span>
             <span class="pull-right-container">
-              <small class="label pull-right bg-yellow">12</small>
-              <small class="label pull-right bg-green">16</small>
-              <small class="label pull-right bg-red">5</small>
+               <i class="fa fa-arrow-circle-right"></i>
             </span>
           </a>
         </li>
@@ -543,7 +540,13 @@ include('pages/required/tables.php');
           <!-- small box -->
           <div class="small-box bg-blue">
             <div class="inner">
-              <h3>75</h3>
+              <h3>
+                <?php $Core_shop_count_query = "SELECT count(*) AS Core_count FROM core_shop_details WHERE 1=1 AND status=1";
+                    $Core_shop_details_count = db_one($Core_shop_count_query);
+
+                    echo $Core_shop_details_count['Core_count'];
+                ?>
+              </h3>
 
               <p>Core Shop</p>
             </div>
@@ -561,26 +564,61 @@ include('pages/required/tables.php');
                         </div>
                         
                       <span class="help-block">
-                        <div class="resolution_added_notification">
+                        <div class="core_shop_details_added_notification">
                           <div id="loading_image" style="display:none;"></div>
                         
                             <form method="post" id="product_add" role="form">
                               <div class="modal-body">
                                   <div class="form-group col-md-6">
-                              <label class="help-block">Type of Melting <span class="text-danger">*</span></label>
-                              <select id="defect" required name="defect" class="form-control res_cat">
-                                <option value="0">Choose One</option>
-                              <?php 
-                                $core_type_query = "SELECT sno,core_type FROM meta_core_type WHERE 1=1";
-                                $core_type_result = db_all($core_type_query);
-                                $core_type_str = "";
-                                foreach($core_type_result AS $ctr){
-                                  $core_type_str .="<option value=".$ctr['sno']." class='help-block'>".$ctr['core_type']."</option>";
-                                }
-                                echo $core_type_str;
-                              ?>
-                              </select>
-                            </div>
+                                    <label class="help-block">Type of Core <span class="text-danger">*</span></label>
+                                    <select id="core_type" required name="defect" class="form-control">
+                                      <option value="0">Choose One</option>
+                                    <?php 
+                                      $core_type_query = "SELECT sno,core_type FROM meta_core_type WHERE 1=1";
+                                      $core_type_result = db_all($core_type_query);
+                                      $core_type_str = "";
+                                      foreach($core_type_result AS $ctr){
+                                        $core_type_str .="<option value=".$ctr['sno']." class='help-block'>".$ctr['core_type']."</option>";
+                                      }
+                                      echo $core_type_str;
+                                    ?>
+                                    </select>
+                                  </div>
+                                  <div class="col-md-12"><!-- Fixed Componants-->
+                                      <div class="form-group col-md-6">
+                                        <label class="help-block">Product Name <span class="text-danger">*</span></label>
+                                        <input type="text" id="product_name" required name="product_name" class="form-control" placeholder="Enter Product name"/>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label class="help-block">Core Weight: <span class="text-danger">*</span></label>
+                                        <input type="text" id="core_weight" required name="core_weight" class="form-control" placeholder="Enter Core Weight"/>
+                                      </div>
+                                       <div class="form-group col-md-6">
+                                        <label class="help-block">Date: <span class="text-danger">*</span></label>
+                                        <input type="text" id="datepicker" required name="date_of_core_details" class="form-control date_of_core_details"/>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label class="help-block">No of Core Produced: <span class="text-danger">*</span></label>
+                                        <input type="text" id="core_produced" required name="core_produced" class="form-control" placeholder="Enter Core Produced"/>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label class="help-block">No of defective Core : <span class="text-danger">*</span></label>
+                                        <input type="text" id="core_defective" required name="core_defective" class="form-control" placeholder="Enter defective Core"/>
+                                      </div>
+                                      <div class="form-group col-md-6">
+                                        <label class="help-block">Shift : <span class="text-danger">*</span></label>
+                                        <select class="form-control" id="shift">
+                                          <option value="0">Select the shift</option>
+                                          <option value="1">Shift 1</option>
+                                          <option value="2">Shift 2</option>
+                                        </select>
+                                      </div>
+
+                                  </div>
+                                      
+                                      
+                                </div>
+                                  
 
                                   <div class="clearfix"></div>
                                   
@@ -589,7 +627,7 @@ include('pages/required/tables.php');
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default pull-left btn-flat" data-dismiss="modal">Close</button>
                                 <button type="reset" class="btn btn-default btn-flat"></i> Reset</button>
-                                <button type="submit" class="btn bg-purple btn-flat" id="add_core_shop"><i class="fa fa-plus"></i> Add</button>
+                                <button type="button" class="btn bg-purple btn-flat" id="add_core_details"><i class="fa fa-plus"></i> Add</button>
                               </div>
                             </form>
                       </div>
@@ -642,7 +680,30 @@ include('pages/required/tables.php');
 <script src="jQuery/add_product_defect.js"></script>
 <script src="jQuery/add_melting_details.js"></script>
 <script src="jQuery/sand_testing_details.js"></script>
+<script src="jQuery/add_core_details.js"></script>
 
+<!-- datepicker -->
+<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+<script>
+  //$(document).on('ready', function(){
+
+  //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    $(document).on('change','#core_type',function(){
+      //alert($(this).val());
+      if($(this).val() == 1){ // for cold box
+
+      }else if($(this).val() == 2){ //for No bake
+
+      }else{ // Co2 core
+
+      }
+    });
+  //});
+</script>
 <!-- Bootstrap 3.3.6 -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
@@ -658,8 +719,7 @@ include('pages/required/tables.php');
 <!-- daterangepicker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="plugins/daterangepicker/daterangepicker.js"></script>
-<!-- datepicker -->
-<script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+
 <!-- Bootstrap WYSIHTML5 -->
 <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 <!-- Slimscroll -->

@@ -30,14 +30,14 @@
 	$updated_at = date('0000-00-00 00:00:00');
 	$status = 1;
 	
-	$table_no = 2;
+	$table_no = 3;
 	$table_name = 'sand_testing_details_master';
-	$insert_values = "NULL,".$moisture.",".$clay.",".$o_additives.",".$shear_strength.",".$Permiability.",".$active_clay.",".$dead_clay.",".$gfn.",'".$gcs.",".$Compactability,",".$mould_hardness.",'".$created_at."','".$updated_at."',".$status;
+	$insert_values = "NULL,".$moisture.",".$clay.",".$o_additives.",".$shear_strength.",".$Permiability.",".$active_clay.",".$dead_clay.",".$gfn.",".$gcs.",".$Compactability.",".$mould_hardness.",'".$created_at."','".$updated_at."',".$status;
 
 	//echo $insert_values; 
 	$sand_testing_details_insert_result = db_insert($table_no,$table_name,$insert_values);
 
-	//echo $melting_deyails_insert_result;
+	//echo '<br>'.$sand_testing_details_insert_result;
 
 	if($sand_testing_details_insert_result == 1){
 	
