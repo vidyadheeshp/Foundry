@@ -299,7 +299,8 @@ include('pages/required/tables.php');
                             </div>
                             <div class="form-group col-md-6">
                               <label class="help-block">Defect <span class="text-danger">*</span></label>
-                              <select id="defect" required name="defect" class="form-control res_cat" multiple>
+                              <select id="defect" required name="defect" class="form-control res_cat">
+                                <option value="0">Choose One</option>
                                 
                               <?php 
                                 $defect_query = "SELECT sno,defect_name FROM meta_defect_type WHERE 1=1";
@@ -394,7 +395,7 @@ include('pages/required/tables.php');
                                           <td><input type="text" id="rr_quantiry" class="form-control" placeholder="in KG's"/></td>
                                         </tr>
                                         <tr>
-                                          <td>Pigiran</td>
+                                          <td>Pig iron</td>
                                           <td><input type="text" id="Pigiran_quantiry" class="form-control" placeholder="in KG's"/></td>
                                         </tr>
                                         <tr>
